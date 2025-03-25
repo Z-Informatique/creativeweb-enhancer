@@ -11,7 +11,6 @@ const Header = () => {
     { name: 'Accueil', href: '#home' },
     { name: 'Services', href: '#services' },
     { name: 'À propos', href: '#about' },
-    { name: 'Équipe', href: '#team' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -37,7 +36,7 @@ const Header = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#home" className="relative z-10">
           <h1 className="text-2xl font-bold text-creative-800">
-            Creative<span className="text-creative-500">More</span>
+            Creative<span className="text-orange-500">More</span>
           </h1>
         </a>
         
@@ -47,12 +46,12 @@ const Header = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-gray-700 hover:text-creative-500 transition-colors duration-200"
+              className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors duration-200"
             >
               {item.name}
             </a>
           ))}
-          <Button className="bg-creative-500 hover:bg-creative-600 text-white shadow-lg transition-all duration-300 hover:shadow-xl">
+          <Button className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:shadow-xl">
             Contactez-nous
           </Button>
         </nav>
@@ -79,14 +78,14 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-base font-medium text-gray-900 hover:text-creative-500 transition-colors"
+                className="text-base font-medium text-gray-900 hover:text-orange-500 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
             <Button 
-              className="bg-creative-500 hover:bg-creative-600 text-white w-full shadow-lg"
+              className="bg-orange-500 hover:bg-orange-600 text-white w-full shadow-lg"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contactez-nous
