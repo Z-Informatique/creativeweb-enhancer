@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
+import QuoteForm from './QuoteForm';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [quoteFormOpen, setQuoteFormOpen] = useState(false);
 
   const navigation = [
     { name: 'Accueil', href: '#home' },
@@ -26,6 +28,13 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleOpenQuoteForm = () => {
+    setQuoteFormOpen(true);
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <header 
@@ -51,8 +60,11 @@ const Header = () => {
               {item.name}
             </a>
           ))}
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:shadow-xl">
-            Contactez-nous
+          <Button 
+            className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:shadow-xl"
+            onClick={handleOpenQuoteForm}
+          >
+            Demander un devis
           </Button>
         </nav>
 
@@ -86,13 +98,16 @@ const Header = () => {
             ))}
             <Button 
               className="bg-orange-500 hover:bg-orange-600 text-white w-full shadow-lg"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={handleOpenQuoteForm}
             >
-              Contactez-nous
+              Demander un devis
             </Button>
           </nav>
         </div>
       )}
+      
+      {/* Formulaire de demande de devis */}
+      <QuoteForm open={quoteFormOpen} onOpenChange={setQuoteFormOpen} />
     </header>
   );
 };
