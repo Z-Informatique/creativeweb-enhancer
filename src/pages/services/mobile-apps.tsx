@@ -1,12 +1,17 @@
 
 import { ArrowLeft, CheckCircle, Smartphone, Globe, Shield, Zap, Code, BarChart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AnimateOnScroll } from "@/utils/animations";
 import { Button } from "@/components/ui/button";
+import QuoteForm from "@/components/QuoteForm";
+import { useState } from "react";
 
 const MobileApps = () => {
+  const [quoteFormOpen, setQuoteFormOpen] = useState(false);
+  const navigate = useNavigate();
+  
   const features = [
     {
       icon: <Smartphone className="w-6 h-6 text-orange-500" />,
@@ -39,6 +44,10 @@ const MobileApps = () => {
       description: "Implémentation d'outils d'analyse pour suivre le comportement des utilisateurs et améliorer continuellement votre application."
     }
   ];
+
+  const handleOpenQuoteForm = (defaultService = "") => {
+    setQuoteFormOpen(true);
+  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -60,10 +69,19 @@ const MobileApps = () => {
                   Transformez vos idées en applications mobiles performantes qui captiveront vos utilisateurs et propulseront votre entreprise vers de nouveaux sommets.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Button 
+                    size="lg" 
+                    className="bg-orange-500 hover:bg-orange-600 text-white"
+                    onClick={() => handleOpenQuoteForm("Applications Mobiles")}
+                  >
                     Demander un devis
                   </Button>
-                  <Button size="lg" variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-orange-500 text-orange-500 hover:bg-orange-50"
+                    onClick={() => navigate("/portfolio")}
+                  >
                     Voir nos projets
                   </Button>
                 </div>
@@ -176,7 +194,11 @@ const MobileApps = () => {
               <p className="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
                 Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis personnalisé.
               </p>
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100">
+              <Button 
+                size="lg" 
+                className="bg-white text-orange-600 hover:bg-gray-100"
+                onClick={() => handleOpenQuoteForm("Applications Mobiles")}
+              >
                 Demander un devis
               </Button>
             </AnimateOnScroll>
@@ -185,6 +207,13 @@ const MobileApps = () => {
       </main>
       
       <Footer />
+      
+      {/* Formulaire de devis */}
+      <QuoteForm 
+        open={quoteFormOpen} 
+        onOpenChange={setQuoteFormOpen}
+        defaultService="Applications Mobiles" 
+      />
     </div>
   );
 };

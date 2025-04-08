@@ -5,8 +5,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AnimateOnScroll } from "@/utils/animations";
 import { Button } from "@/components/ui/button";
+import QuoteForm from "@/components/QuoteForm";
+import { useState } from "react";
 
 const DataManagement = () => {
+  const [quoteFormOpen, setQuoteFormOpen] = useState(false);
+  
+  const handleOpenQuoteForm = () => {
+    setQuoteFormOpen(true);
+  };
+  
   const features = [
     {
       icon: <Database className="w-6 h-6 text-orange-500" />,
@@ -60,7 +68,11 @@ const DataManagement = () => {
                   Transformez vos données en insights stratégiques pour prendre des décisions éclairées et obtenir un avantage concurrentiel.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Button 
+                    size="lg" 
+                    className="bg-orange-500 hover:bg-orange-600 text-white"
+                    onClick={handleOpenQuoteForm}
+                  >
                     Demander un devis
                   </Button>
                   <Button size="lg" variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50">
@@ -183,7 +195,11 @@ const DataManagement = () => {
               <p className="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
                 Contactez-nous dès aujourd'hui pour discuter de vos besoins en gestion et analyse de données.
               </p>
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100">
+              <Button 
+                size="lg" 
+                className="bg-white text-orange-600 hover:bg-gray-100"
+                onClick={handleOpenQuoteForm}
+              >
                 Demander un devis
               </Button>
             </AnimateOnScroll>
@@ -192,6 +208,13 @@ const DataManagement = () => {
       </main>
       
       <Footer />
+      
+      {/* Formulaire de devis */}
+      <QuoteForm 
+        open={quoteFormOpen} 
+        onOpenChange={setQuoteFormOpen} 
+        defaultService="Gestion de données" 
+      />
     </div>
   );
 };
