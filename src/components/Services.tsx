@@ -1,6 +1,7 @@
 
 import { AnimateOnScroll } from "@/utils/animations";
 import { Globe, Layout, Server, Gift, Users, Database, Smartphone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -81,12 +82,12 @@ const Services = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
                 <p className="text-gray-600 flex-grow">{service.description}</p>
-                <a href={service.link} className="mt-6 text-orange-500 hover:text-orange-600 inline-flex items-center font-medium">
+                <Link to={service.link} className="mt-6 text-orange-500 hover:text-orange-600 inline-flex items-center font-medium">
                   En savoir plus
                   <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
               </div>
             </AnimateOnScroll>
           ))}

@@ -1,8 +1,17 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Lightbulb, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
+  // Scroll to services section
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen pt-24 pb-16 flex items-center relative overflow-hidden">
       {/* Background gradient and pattern */}
@@ -28,13 +37,18 @@ const Hero = () => {
             </p>
             
             <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <Button className="bg-creative-600 hover:bg-creative-700 text-white px-8 py-6 h-auto shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <Button 
+                className="bg-creative-600 hover:bg-creative-700 text-white px-8 py-6 h-auto shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                onClick={scrollToServices}
+              >
                 Découvrir nos services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="border-creative-300 text-creative-700 hover:text-creative-800 hover:bg-creative-50 px-8 py-6 h-auto transition-all duration-300">
-                Contactez-nous
-              </Button>
+              <Link to="/#contact">
+                <Button variant="outline" className="border-creative-300 text-creative-700 hover:text-creative-800 hover:bg-creative-50 px-8 py-6 h-auto transition-all duration-300">
+                  Contactez-nous
+                </Button>
+              </Link>
             </div>
           </div>
           

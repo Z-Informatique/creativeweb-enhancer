@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -51,7 +51,7 @@ const QuoteForm = ({ open, onOpenChange, defaultService = "" }: QuoteFormProps) 
     setIsSubmitting(true);
 
     try {
-      // Configure EmailJS (utiliser vos propres identifiants)
+      // Configure EmailJS
       const templateParams = {
         from_name: data.name,
         from_email: data.email,
@@ -63,12 +63,12 @@ const QuoteForm = ({ open, onOpenChange, defaultService = "" }: QuoteFormProps) 
         to_email: "contact@creative-more-africa.com",
       };
 
-      // Remplacer par vos propres identifiants EmailJS
+      // Remplacer par les identifiants EmailJS réels
       await emailjs.send(
         "service_creativeweb", // Remplacer par votre Service ID
         "template_quote_request", // Remplacer par votre Template ID
         templateParams,
-        "YourUserID" // Remplacer par votre User ID
+        "ZDQ8dv1qcnP6ZQWDt" // Clé publique - peut être incluse en toute sécurité
       );
 
       toast.success("Votre demande de devis a été envoyée avec succès. Notre équipe vous contactera bientôt.");

@@ -10,18 +10,27 @@ import Footer from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.currentTarget as HTMLAnchorElement;
+      if (target && target.hash && target.hash.startsWith('#')) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href') as string);
-        if (target) {
-          window.scrollTo({
-            top: (target as HTMLElement).offsetTop,
-            behavior: 'smooth'
-          });
+        const element = document.querySelector(target.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
         }
-      });
+      }
+    };
+
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(anchor => {
+      anchor.addEventListener('click', handleAnchorClick as EventListener);
     });
+
+    return () => {
+      anchorLinks.forEach(anchor => {
+        anchor.removeEventListener('click', handleAnchorClick as EventListener);
+      });
+    };
   }, []);
 
   return (

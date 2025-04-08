@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import QuoteForm from './QuoteForm';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,10 +11,10 @@ const Header = () => {
   const [quoteFormOpen, setQuoteFormOpen] = useState(false);
 
   const navigation = [
-    { name: 'Accueil', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Accueil', href: '/' },
+    { name: 'Services', href: '/#services' },
+    { name: 'À propos', href: '/#about' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   useEffect(() => {
@@ -43,22 +44,32 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a href="#home" className="relative z-10">
+        <Link to="/" className="relative z-10">
           <h1 className="text-2xl font-bold text-creative-800">
             Creative<span className="text-orange-500">More</span>
           </h1>
-        </a>
+        </Link>
         
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors duration-200"
-            >
-              {item.name}
-            </a>
+            item.href.startsWith('/#') ? (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors duration-200"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-sm font-medium text-gray-700 hover:text-orange-500 transition-colors duration-200"
+              >
+                {item.name}
+              </Link>
+            )
           ))}
           <Button 
             className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:shadow-xl"
@@ -87,14 +98,25 @@ const Header = () => {
         <div className="absolute top-0 inset-x-0 pt-20 pb-6 px-6 bg-white shadow-lg md:hidden animate-scale-in">
           <nav className="flex flex-col space-y-6">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-base font-medium text-gray-900 hover:text-orange-500 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('/#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-base font-medium text-gray-900 hover:text-orange-500 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-base font-medium text-gray-900 hover:text-orange-500 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <Button 
               className="bg-orange-500 hover:bg-orange-600 text-white w-full shadow-lg"
