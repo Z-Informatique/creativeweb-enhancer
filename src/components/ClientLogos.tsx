@@ -1,21 +1,20 @@
-
 import { AnimateOnScroll } from "@/utils/animations";
 
 const clients = [
   {
-    name: "BIZZ TECHNOLOGY",
+    name: "Bizz Technology",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "BOUARA & CIE",
+    name: "Bouara & Cie",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "CHANTYSHOP",
+    name: "Chantyshop",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "TRT SOLUTION",
+    name: "TRT Solution",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
@@ -24,14 +23,6 @@ const clients = [
   },
   {
     name: "Cabinet OT",
-    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
-  },
-  {
-    name: "Eliel Services Congo",
-    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
-  },
-  {
-    name: "Nyota",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   }
 ];
