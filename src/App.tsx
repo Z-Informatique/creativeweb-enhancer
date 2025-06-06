@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Realisations from "./pages/Realisations";
 
 // Service Pages
 import WebDevelopment from "./pages/services/web-development";
@@ -34,6 +34,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/realisations" element={<Realisations />} />
           
           {/* Service Routes */}
           <Route path="/services/web-development" element={<WebDevelopment />} />
