@@ -3,27 +3,35 @@ import { AnimateOnScroll } from "@/utils/animations";
 
 const clients = [
   {
-    name: "TechCorp",
+    name: "BIZZ TECHNOLOGY",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "InnovateHub",
+    name: "BOUARA & CIE",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "DataSystems",
+    name: "CHANTYSHOP",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "CloudTech",
+    name: "TRT SOLUTION",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "DigitalFlow",
+    name: "FTS",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   },
   {
-    name: "SecureNet",
+    name: "Cabinet OT",
+    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
+  },
+  {
+    name: "Eliel Services Congo",
+    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
+  },
+  {
+    name: "Nyota",
     logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=120&h=60&fit=crop"
   }
 ];
