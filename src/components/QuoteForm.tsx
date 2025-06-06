@@ -171,6 +171,8 @@ const QuoteForm = ({ open, onOpenChange, defaultService = "" }: QuoteFormProps) 
                       <option value="Applications Mobiles">Applications Mobiles</option>
                       <option value="Formations">Formations digitales</option>
                       <option value="Gestion de données">Gestion de données</option>
+                      <option value="Maintenance informatique">Maintenance informatique</option>
+                      <option value="Support informatique">Support informatique</option>
                       <option value="Autre">Autre (préciser dans le message)</option>
                     </select>
                   </FormControl>

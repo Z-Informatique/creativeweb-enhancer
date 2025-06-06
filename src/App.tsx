@@ -15,6 +15,8 @@ import WebApplications from "./pages/services/web-applications";
 import MobileApps from "./pages/services/mobile-apps";
 import Trainings from "./pages/services/trainings";
 import DataManagement from "./pages/services/data-management";
+import MaintenanceInformatique from "./pages/services/maintenance-informatique";
+import SupportInformatique from "./pages/services/support-informatique";
 
 // Legal Pages
 import MentionsLegales from "./pages/legal/mentions-legales";
@@ -41,6 +43,8 @@ const App = () => (
           <Route path="/services/mobile-apps" element={<MobileApps />} />
           <Route path="/services/trainings" element={<Trainings />} />
           <Route path="/services/data-management" element={<DataManagement />} />
+          <Route path="/services/maintenance-informatique" element={<MaintenanceInformatique />} />
+          <Route path="/services/support-informatique" element={<SupportInformatique />} />
           
           {/* Legal Routes */}
           <Route path="/legal/mentions-legales" element={<MentionsLegales />} />

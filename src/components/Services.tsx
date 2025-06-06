@@ -1,6 +1,6 @@
 
 import { AnimateOnScroll } from "@/utils/animations";
-import { Globe, Layout, Server, Gift, Users, Database, Smartphone } from "lucide-react";
+import { Globe, Layout, Server, Gift, Users, Database, Smartphone, Wrench, Headphones } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -45,6 +45,18 @@ const services = [
     description: "Solutions de gestion et d'analyse de données pour transformer vos informations en insights stratégiques et avantages concurrentiels.",
     icon: <Database className="h-6 w-6 text-creative-500" />,
     link: "/services/data-management"
+  },
+  {
+    title: "Maintenance informatique",
+    description: "Services complets de maintenance préventive et curative pour assurer le bon fonctionnement de votre infrastructure informatique.",
+    icon: <Wrench className="h-6 w-6 text-creative-500" />,
+    link: "/services/maintenance-informatique"
+  },
+  {
+    title: "Support informatique",
+    description: "Assistance technique professionnelle et réactive pour résoudre vos problèmes informatiques et optimiser vos performances.",
+    icon: <Headphones className="h-6 w-6 text-creative-500" />,
+    link: "/services/support-informatique"
   }
 ];
 
